@@ -13,7 +13,7 @@ import os
 from pathlib import Path
 
 from django.conf.global_settings import STATICFILES_DIRS, MEDIA_URL, MEDIA_ROOT, LOGIN_URL, LOGIN_REDIRECT_URL, \
-    SESSION_COOKIE_AGE, SESSION_SAVE_EVERY_REQUEST
+    SESSION_COOKIE_AGE, SESSION_SAVE_EVERY_REQUEST, STATIC_ROOT
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -127,6 +127,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS =[
     BASE_DIR/'static',
 ]
+STATIC_ROOT = BASE_DIR/'staticfiles'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'media'
 
