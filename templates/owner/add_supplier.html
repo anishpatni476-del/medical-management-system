@@ -1,0 +1,114 @@
+{% extends 'owner/owner_base.html' %}
+{% load static %}
+
+{% block title %}
+add_supplier
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+            <div class="card shado-sm border-0 rounded-4">
+                <div class="card-header bg-white">
+
+                    <h4> <i class="bi bi-truck me-2 text-success d-flex"></i> Add New Supplier</h4>
+                </div>
+
+                <div class="card-body">
+
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}
+                                    alert-dismissible fade show">
+                        {{ message }}
+                        <button type="button" class="btn-close"
+                        data-bs-dismiss="alert"></button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    Company Name
+                                </label>
+                                <input type="text" class="form-control" placeholder="Enter Company Name" name="company_name"
+                                value="{{ form_data.company_name }}">
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    Contact Person
+                                </label>
+                                <input type="text" class="form-control" placeholder="Enter Contact Person Name" name="contact_person"
+                                value="{{ form_data.contact_person }}">
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    Mobile Number
+                                </label>
+                                <input type="tel" class="form-control" placeholder="Enter Mobile Number" name="mobile_no"
+                                value="{{ form_data.mobile_no }}">
+                            </div>
+
+                             <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    Email
+                                </label>
+                                <input type="email" class="form-control" placeholder="Enter Email Address" name="email"
+                                value="{{ form_data.email }}">
+                            </div>
+
+                             <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    GST Number
+                                </label>
+                                <input type="text" class="form-control" placeholder="Enter GST Number" name="gst_no"
+                                value="{{ form_data.gst_no }}">
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">
+                                    Address
+                                </label>
+                                <textarea class="form-control" rows="3" placeholder="Enter Supplier Address" name="address">{{ form_data.address }}</textarea>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    City
+                                </label>
+                                <input type="text" class="form-control" placeholder="Enter City" name="city" value="{{ form_data.city }}">
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    Status
+                                </label>
+                                <select class="form-select" name="status">
+                                    <option value="">Select Status</option>
+                                    <option value="Active" {% if form_data.status == "Active" %}selected{% endif %}>Active</option>
+                                    <option value="Inactive" {% if form_data.status == "Inactive" %}selected{% endif %}>Inactive</option>
+                                </select>
+                            </div>
+
+                                    <div class="mt-4">
+                                <button type="submit" class="btn btn-success ">
+                                    Save Supplier
+                                </button>
+                                <a href="{% url 'suppliers' %}" class="btn btn-secondary ms-2">
+                                    Cancel
+                                </a>
+                            </div>
+                         </div>
+                    </form>
+
+                </div>
+            </div>
+</div>
+
+{% endblock %}

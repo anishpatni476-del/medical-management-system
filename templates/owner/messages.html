@@ -1,0 +1,255 @@
+{% extends 'owner/owner_base.html' %}
+{% load static %}
+
+{% block title %}
+Messages
+{% endblock %}
+
+{% block content %}
+        <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="fw-bold">
+                    <i class="bi bi-envelope me-2"></i>
+                    Contact Messages
+                </h2>
+                <p class="text-muted mb-0">
+                    Manage customer contact messages.
+                </p>
+            </div>
+            <a href="{% url 'owner_messages' %}" class="btn btn-success">
+                <i class="bi bi-arrow-clockwise me-2"></i>
+                Refresh
+            </a>
+            </div>
+
+            <div class="card shadow-sm border-0 rounded-4 p-2">
+                <form method="GET">
+                <div class="row align-items-center">
+
+                    <div class="col-md-8">
+                        <div class="d-flex align-items-center">
+                            <i class=" bi bi-search search-icon  me-2"></i>
+                            <input class="form-control" type="text" placeholder="Search Messages..." name="search"
+                            value="{{ request.GET.search }}">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 text-end">
+                        <button class="btn btn-success me-2 search-btn" type="submit">
+                            Search
+                        </button>
+                        <a class="btn btn-secondary reset-btn" href="{% url 'owner_messages' %}">
+                            Reset
+                        </a>
+                    </div>
+
+            </div>
+                    </form>
+        </div>
+
+
+             <div class="card shadow-sm border-0 rounded-4 mt-4">
+
+                 <div class="card-header bg-white d-flex justify-content-between align-items-center ">
+                <h5 class="mb-0 d-flex">
+                    <i class="bi bi-envelope text-success heading-icon"></i>
+                    Customer Messages
+                </h5>
+                <span class="badge bg-success">{{ messages.paginator.count }} Messages</span>
+            </div>
+
+
+
+                <div class="card-body p-0">
+
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+
+                            <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Mobile</th>
+                                <th>Email</th>
+                                <th>Message</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+
+                                    <tbody>
+                                        {% for message in messages %}
+                                    <tr>
+                                        <td>{{ messages.start_index|add:forloop.counter0 }}</td>
+                                        <td>{{ message.name }}</td>
+                                        <td>{{ message.phone }}</td>
+                                        <td>{{ message.email }}</td>
+                                        <td>{{ message.message|truncatechars:30 }}</td>
+
+                                        <td>{{ message.created_at|date:'d-m-Y' }}</td>
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-outline-primary me-2"
+                                            data-bs-toggle="modal" data-bs-target="#viewMessageModal{{ message.id }}">
+                                                View
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-outline-danger"
+                                            data-bs-toggle="modal" data-bs-target="#deleteMessage{{ message.id }}">
+                                                Delete
+                                            </a>
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="7" class="text-center">No Messages Found</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                        </table>
+                    </div>
+
+                    {% for message in messages %}
+                     <div class="modal fade" id="viewMessageModal{{ message.id }}" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">
+                                    View Message
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="row">
+
+                                    <div class="col-md-12 mb-3">
+                                        <label class="fw-semibold">
+                                            Name
+                                        </label>
+                                        <p>{{ message.name }}</p>
+                                    </div>
+
+                                    <div class="col-md-12 mb-3">
+                                        <label class="fw-semibold">
+                                            Mobile No
+                                        </label>
+                                        <p>{{ message.phone }}</p>
+                                    </div>
+
+                                    <div class="col-md-12 mb-3">
+                                        <label class="fw-semibold">
+                                            Email
+                                        </label>
+                                        <p>{{ message.email }}</p>
+                                    </div>
+
+                                    <div class="col-md-12 mb-3">
+                                        <label class="fw-semibold">
+                                            Date
+                                        </label>
+                                        <p>{{ message.created_at|date:'d-m-Y' }}</p>
+                                    </div>
+
+                                    <div class="col-md-12 mb-3">
+                                        <label class="fw-semibold">
+                                            Message
+                                        </label>
+                                        <p>{{ message.message }}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
+                                    Close
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                    </div>
+                                        <div class="modal fade" id="deleteMessage{{ message.id }}" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            Delete Message
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body text-center">
+                        <i class="bi bi-trash text-danger fs-1"></i>
+                        <h5 class="mt-3">
+                            Are you sure?
+                        </h5>
+                        <p class="text-muted">
+                            Do you really want to delete
+                            <strong>{{ message.name }}</strong>?
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">
+                            Cancel
+                        </button>
+                        <a class="btn btn-danger" href="{% url 'delete_message' message.id %}">
+                            Delete
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </div>
+          {% endfor %}
+
+                </div>
+            </div>
+
+                 <div class="card-footer bg-white">
+            <div class="d-flex justify-content-between align-items-center mt-3">
+
+                <small class="text-muted">
+                    Showing {{ messages.start_index }} to {{ messages.end_index }} of
+                    {{ messages.paginator.count }} messages.
+                </small>
+
+                <nav>
+                    <ul class="pagination pagination-sm mb-0">
+
+                       <li class="page-item {% if not messages.has_previous %}disabled{% endif %}">
+                            {% if messages.has_previous %}
+                            <a class="page-link" href="?page={{ messages.previous_page_number }}&search={{ request.GET.search }}"> Previous</a>
+                            {% else %}
+                            <a class="page-link" href="#">Previous</a>
+                            {% endif %}
+                        </li>
+
+                        {% for page in messages.paginator.page_range %}
+                        <li class="page-item {% if messages.number == page %}active{% endif %}">
+                            <a class="page-link" href="?page={{ page }}&search={{ request.GET.search }}">{{ page }} </a>
+                        </li>
+                        {% endfor %}
+
+
+                         <li class="page-item {% if not messages.has_next %}disabled{% endif %}">
+                            {% if messages.has_next %}
+                            <a class="page-link" href="?page={{ messages.next_page_number }}&search={{ request.GET.search }}"> Next</a>
+                            {% else %}
+                            <a class="page-link" href="#">Next</a>
+                            {% endif %}
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+
+                      </div>
+            </div>
+
+
+{% endblock %}

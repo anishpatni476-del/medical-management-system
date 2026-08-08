@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Services
+{% endblock %}
+
+{% block content %}
+    <section class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="fw-bold mb-4">Our Services</h1>
+                <p class="lead">
+                    Noble Chemist provides genuine medicines, healthcare products,
+                    medical equipment, and reliable pharmacy services to meet your
+                    healthcare needs with quality and trust.
+                </p>
+                <a href="#services-section" class="btn btn-primary mt-3 mb-3">
+                    Explore Services
+                </a>
+            </div>
+            <div class="col-lg-6 text-center">
+                {% if profile.services_page_image %}
+                <img src="{{ profile.services_page_image.url }}" class="img-fluid rounded shadow hero-img mt-3" alt="Our Services">
+                {% else %}
+                <img src="{% static 'images/services1.png' %}" class="img-fluid rounded shadow hero-img mt-3" alt="Our Services">
+                {% endif %}
+            </div>
+        </div>
+
+    </section>
+
+        <section class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">What We Provide </h2>
+                <p class="text-muted">
+                    At Noble Chemist, we offer a wide range of healthcare products and pharmacy
+                                services to meet your everyday medical needs.
+                </p>
+            </div>
+
+            <section class="container py-5" id="services-section">
+                <div class="row">
+                    <div class=" col-lg-6">
+
+                       <div class="d-flex mb-4">
+                            <i class="bi bi-prescription fs-1 text-primary me-3"></i>
+                           <div>
+                             <h5>Prescription Medicines </h5>
+                            <p>Only genuine prescription medicines from trusted pharmaceutical companies. </p>
+                           </div>
+
+                        </div>
+
+                        <div class="d-flex mb-4">
+                            <i class="bi bi-capsule-pill fs-1 text-primary me-3"></i>
+                           <div>
+                             <h5>Over-The-Counter Medicines </h5>
+                            <p>Medicines for common health conditions without a prescription.</p>
+                           </div>
+
+                        </div>
+
+                        <div class="d-flex mb-4">
+                            <i class="bi bi-bandaid fs-1 text-primary me-3"></i>
+                           <div>
+                             <h5>First Aid Products </h5>
+                            <p>Bandages, antiseptics, cotton, and other first aid essentials. </p>
+                           </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-lg-6">
+
+                        <div class="d-flex mb-4">
+                            <i class="bi bi-heart-pulse-fill fs-1 text-primary me-3"></i>
+                           <div>
+                             <h5>Healthcare Products </h5>
+                            <p> Daily healthcare and wellness products for all age groups.</p>
+                           </div>
+                        </div>
+
+                        <div class="d-flex mb-4">
+                            <i class="bi bi-clipboard2-pulse fs-1 text-primary me-3"></i>
+                           <div>
+                             <h5>Medical Equipment </h5>
+                            <p>Thermometer, BP monitors, nebulizers and other essential devices.  </p>
+                           </div>
+                        </div>
+
+                        <div class="d-flex mb-4">
+                            <i class="bi bi-droplet fs-1 text-primary me-3"></i>
+                           <div>
+                             <h5> Personal Care Products</h5>
+                            <p> Skincare, hygiene, baby care and personal wellness products.</p>
+                           </div>
+                        </div>
+
+                    </div>
+                    </div>
+                </section>
+        </section>
+
+            <section class="container py-5">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">
+                        Our Service Process
+                    </h2>
+                    <p class="text-muted">
+                        We follow a simple and transparent process to ensure
+                        every customer receives the right healthcare products and services.
+                    </p>
+                </div>
+
+                <section class="container py-5">
+                    <div class="d-flex align-items-start border-bottom pb-4 mb-4">
+                        <i class="bi bi-chat-dots fs-1 text-primary me-4"></i>
+                        <div>
+                            <h4> Tell Us Your Requirement</h4>
+                            <p class="text-muted">
+                                Share your healthcare requirement or the
+                                medicine you are looking for with our team.
+                            </p>
+                        </div>
+                    </div>
+
+                     <div class="d-flex align-items-start border-bottom pb-4 mb-4">
+                        <i class="bi bi-search fs-1 text-primary me-4"></i>
+                        <div>
+                            <h4>We Check Availability </h4>
+                            <p class="text-muted">
+                                Our team checks the availability or the requested medicine or
+                                healthcare products in the store.
+                            </p>
+                        </div>
+                    </div>
+
+                     <div class="d-flex align-items-start border-bottom pb-4 mb-4">
+                        <i class="bi bi-check2-circle fs-1 text-primary me-4"></i>
+                        <div>
+                            <h4> Product Verification</h4>
+                            <p class="text-muted">
+                                We ensure that the medicine is genuine, properly stored,
+                                and within its expiry date before providing it to you.
+                            </p>
+                        </div>
+                    </div>
+
+                     <div class="d-flex align-items-start border-bottom pb-4 mb-4">
+                        <i class="bi bi-people-fill fs-1 text-primary me-4"></i>
+                        <div>
+                            <h4> Customer Assistance</h4>
+                            <p class="text-muted">
+                                We assist customers with product-related information
+                                and help them choose suitable healthcare products whenever required
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+        <h2 class="text-center fw-bold mb-3">
+            Important Information
+        </h2>
+        <p class="text-center text-muted mb-5">
+            Please read the following information before purchasing or enquiring about medicines.
+        </p>
+
+            <div class="container py-5">
+            <div class="d-flex mb-4">
+                <i class="bi bi-info-circle-fill fs-3 text-primary me-3"></i>
+                <div>
+                    <h5>Prescription Medicines</h5>
+                    <p class="text-muted mb-0">
+                        Certain medicines are available only with a valid doctor's prescription.
+                    </p>
+                </div>
+            </div>
+
+             <div class="d-flex mb-4">
+                <i class="bi bi-info-circle-fill fs-3 text-primary me-3"></i>
+                <div>
+                    <h5>Medicine Availability</h5>
+                    <p class="text-muted mb-0">
+                       Availability of medicines may very depend on stock.
+                    </p>
+                </div>
+            </div>
+
+             <div class="d-flex mb-4">
+                <i class="bi bi-info-circle-fill fs-3 text-primary me-3"></i>
+                <div>
+                    <h5>Product Information</h5>
+                    <p class="text-muted mb-0">
+                        Please check the expiry date and usage
+                        instructions before using any medicine.
+                    </p>
+                </div>
+            </div>
+
+
+             <div class="d-flex mb-4">
+                <i class="bi bi-info-circle-fill fs-3 text-primary me-3"></i>
+                <div>
+                    <h5>Need Assistance?</h5>
+                    <p class="text-muted mb-0">
+                        Medicines or healthcare regarding medicines or healthcare products,
+                         feel free to contact our team.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'owner/owner_base.html' %}
+{% load static %}
+
+{% block title %}
+add_category
+{% endblock %}
+
+{% block content %}
+
+        <div class="container-fluid">
+            <div class="card shado-sm border-0 rounded-4">
+                <div class="card-header bg-white">
+
+                    <h4> <i class="bi bi-plus-circle me-2 text-success d-flex"></i> Add New Category</h4>
+                </div>
+
+                <div class="card-body">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Category Name
+                            </label>
+                            <input class="form-control" type="text" placeholder="Enter Category Name" name="category_name">
+                        </div>
+
+                         <div class="mb-3">
+
+                            <label class="form-label">
+                                Description
+                            </label>
+                           <textarea class="form-control" rows="3" placeholder="Enter Description" name="description"></textarea>
+                        </div>
+
+                        <div class="mb-3 d-flex">
+                            <label class="form-control">
+                                Status
+                            </label>
+                            <select class="form-select" name="status">
+                                <option value="">Select Status</option>
+                                <option value="Active" >Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-success">
+                            Save Category
+                        </button>
+                        <a href="{% url 'owner_category' %}" class="btn btn-secondary ms-2">
+                            Cancel
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

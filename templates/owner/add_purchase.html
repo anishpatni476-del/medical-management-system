@@ -1,0 +1,107 @@
+{% extends 'owner/owner_base.html' %}
+{% load static %}
+
+{% block title %}
+add purchase
+{% endblock %}
+
+{% block content %}
+
+             <div class="container-fluid">
+            <div class="card shado-sm border-0 rounded-4">
+                <div class="card-header bg-white">
+
+                    <h4> <i class="bi bi-capsule-pill me-2 text-success d-flex"></i> Add New Purchase</h4>
+                </div>
+
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Supplier
+                                </label>
+                              <select class="form-select" name="supplier" required>
+                                  <option value="">Select Supplier</option>
+                                  {% for supplier in suppliers %}
+                                  <option value="{{ supplier.id }}">
+                                      {{ supplier.company_name }}
+                                  </option>
+                                  {% endfor %}
+                              </select>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    Medicine
+                                </label>
+                                <select class="form-select" name="medicine" required>
+                                    <option value="">Select Medicine</option>
+                                    {% for medicine in medicines %}
+                                    <option value="{{ medicine.id }}">{{ medicine.medicine_name }}</option>
+                                    {% endfor %}
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    Invoice Number
+                                </label>
+                                <input class="form-control" type="text" placeholder="Enter Invoice Number" name="invoice_number">
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    Purchase_price
+                                </label>
+                                <input class="form-control" type="number" step="0.01" placeholder="Enter Purchase Price" name="purchase_price" required>
+                            </div>
+
+                             <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                  Quantity
+                                </label>
+                                <input class="form-control" type="number" placeholder="Enter Quantity " name="quantity" required>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label d-flex">
+                                    GST (%)
+                                </label>
+                                <select class="form-select" name="gst_percentage">
+                                    <option value="0">0%</option>
+                                    <option value="5">5%</option>
+                                    <option value="12">12%</option>
+                                    <option value="18">18%</option>
+                                    <option value="28">28%</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label d-flex">
+                                    Purchase Date
+                                </label>
+                                <input type="date" class="form-control" placeholder="Enter Purchase Date" name="purchase_date">
+                            </div>
+
+
+                            <div class="mt-4">
+                                <button type="submit" class="btn btn-success ">
+                                    Save Purchase
+                                </button>
+                                <a href="{% url 'purchase_list' %}" class="btn btn-secondary ms-2">
+                                    Cancel
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+         </div>
+
+{% endblock %}
+

@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+home
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+            <h1 class="display-4 fw-bold">
+                Welcome to Noble chemist
+            </h1>
+            <p class="lead mt-3">
+                Your Trusted Medical Store for Genuine Medicines,
+                Healthcare Products and Customer Care.
+            </p>
+            <a href="{% url 'contact' %}" class="btn btn-primary btn-lg mt-3 mb-3">
+                Contact Us
+            </a>
+            <a href="{% url 'services' %}" class="btn btn-outline-primary btn-lg mt-3 ms-2 mb-3">
+                Our Services
+            </a>
+        </div>
+        <div class="col-lg-6 text-center">
+            {% if profile.home_hero_image %}
+            <img src="{{ profile.home_hero_image.url }}"
+            class="img-fluid rounded hero-img shadow mb-3" alt="Medical Store">
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+        <section class="container pt-3">
+            <div class="text-center mb-5">
+                <h2>Why Choose Noble Chemist?</h2>
+                <p class="text-muted">
+                    We provide trusted medicines, healthcare products and excellent customer support.
+                </p>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <div class="card shadow-sm p-3 text-center h-100 ">
+                        <h4><i class="bi bi-capsule-pill"></i> Genuine Medicines</h4>
+                        <p>100% original medicines from trusted companies</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card shadow-sm p-3 text-center h-100 ">
+                        <h4><i class="bi bi-heart-pulse"></i> Healthcare Products</h4>
+                        <p> Health and wellness products available.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card shadow-sm p-3 text-center h-100 ">
+                        <h4><i class="bi bi-shield-check"></i> Trusted Medical Store </h4>
+                        <p> Providing quality medicines with reliable customer service.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container py-5">
+            <div class="row align item-center">
+                <div class="col-lg-6 mb-4">
+                    {% if profile.home_about_image %}
+                    <img src="{{ profile.home_about_image.url }}" class="img-fluid rounded shadow" alt="about">
+                    {% else %}
+                     <img src="{% static 'images/about.png' %}" class="img-fluid rounded shadow" alt="about">
+                    {% endif %}
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-3">About Noble Chemist </h2>
+                    <p class="text-muted">
+                        Noble Chemist is committed to providing genuine medicines,
+                        healthcare products and reliable customer service. Our mission
+                        is to ensure quality healthcare products at affordable prices.
+                    </p>
+
+                    <p class="text-muted">
+                        We focus on customer satisfaction, trusted pharmaceutical
+                        products and professional service for every customer.
+                    </p>
+                    <a href="{% url 'about' %}" class="btn btn-primary ">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold"> Our Services</h2>
+                <p class="text-muted">
+                    We provide high-quality medicines and healthcare products for our customers.
+                </p>
+            </div>
+            <div class="row g-4">
+
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-capsule-pill display-4 text-primary"></i>
+                            <h4 class="mt-3"> Prescription Medicines</h4>
+                            <p class="text-muted">
+                                Genuine medicines prescribed by certified doctors.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-heart-pulse display-4 text-primary"></i>
+                            <h4 class="mt-3">
+                                Healthcare Products
+                            </h4>
+                            <p class="text-muted">
+                                Daily healthcare and wellness products.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-bandaid display-4 text-primary"></i>
+                            <h4 class="mt-3">
+                                first Aid Essentials
+                            </h4>
+                            <p class="text-muted">
+                                Bandages, antiseptics and emergency care products.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-activity display-4 text-primary"></i>
+                            <h4 class="mt-3"> Health Monitoring</h4>
+                            <p class="text-muted"> BP Monitor, Glucometer and Thermometer.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-shield-check display-4 text-primary"></i>
+                            <h4 class="mt-3">Trusted Medicines</h4>
+                            <p class="text-muted"> 100% Genuine medicines from trusted companies.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-hospital display-4 text-primary"></i>
+                            <h4 class="mt-3">Medical Equipment</h4>
+                            <p class="text-muted"> Basic medical devices and healthcare equipment.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </section>
+{% endblock %}

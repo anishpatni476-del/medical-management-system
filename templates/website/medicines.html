@@ -1,0 +1,307 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Medicines
+{% endblock %}
+
+{% block content %}
+            <section class="container py-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h1 class="fw-bold mb-4">
+                            Our Medicines
+                        </h1>
+                        <p class="lead">
+                            Browse a wide range of genuine medicines and healthcare products
+                            available at noble chemist. We are commited to providing trusted pharmaceutical
+                            products to support your healthcare needs.
+                        </p>
+                        <a href="#medicine-list" class="btn btn-primary mt-3 mb-3">
+                            Browse Medicines
+                        </a>
+                    </div>
+
+                    <div class="col-lg-6 text-center">
+                        {% if profile.medicines_page_image %}
+                        <img src="{{ profile.medicines_page_image.url }}" class="img-fluid rounded shadow hero-img mt-3" alt="Medicines">
+                        {% else %}
+                        <img src="{% static 'images/medical.jpeg' %}" class="img-fluid rounded shadow hero-img mt-3" alt="Medicines">
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+
+
+                <section class="container py-5 mb-3">
+    <h2 class="text-center fw-bold mb-3">
+        Search Medicines
+    </h2>
+
+    <p class="text-center text-muted mb-5">
+        Search medicines by name to quickly find the
+        products available at Noble Chemist.
+    </p>
+
+    <div class="shadow-sm p-3 rounded bg-white">
+        <form method="GET" action="{% url 'medicines' %}#medicine-list">
+
+            <div class="row g-2 align-items-center">
+
+                <div class="col-lg-8 col-md-7 col-12">
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-search"></i>
+                        </span>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="search"
+                            placeholder="Search Medicines..."
+                            value="{{ request.GET.search }}">
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-2 col-6">
+                    <button class="btn btn-outline-primary w-100">
+                        Search
+                    </button>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-6">
+                    <a href="{% url 'medicines' %}#medicine-list"
+                       class="btn btn-secondary w-100">
+                        Reset
+                    </a>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</section>
+
+
+         <h2 class="text-center fw-bold mb-3">
+                Browse By Category
+            </h2>
+            <p class="text-center text-muted mb-5">
+                Select a category to explore the medicines and healthcare products available at Noble Chemist.
+            </p>
+
+            <div class="d-flex flex-wrap justify-content-center gap-3 ">
+                {% for category in categories %}
+                <a href="?category={{ category.id }}#medicine-list" class="btn btn-outline-primary rounded-pill px-4 py-3">
+                    <i class="bi bi-capsule  me-2"></i>
+                   {{ category.category_name }}
+                </a>
+                {% endfor %}
+            </div>
+
+
+        <section class="container py-5" id="medicine-list">
+            <h2 class="text-center fw-bold mb-3">
+                Available Medicines
+            </h2>
+            <p class="text-center text-muted mb-5">
+                Browse genuine medicines available at Noble Chemist.
+                Click on any medicine to view more information.
+            </p>
+                    <div class="row g-4">
+                        {% for medicine in medicines %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="card shadow-sm border-0 h-100 ">
+
+                        {% if medicine.medicine_image %}
+                        <img src="{{ medicine.medicine_image.url }}"
+                        class="medicine-card img-fluid rounded-4" alt="{{medicine.medicine_name }} ">
+                        {% else %}
+                        <img src="{% static 'images/no-image.png' %}"
+                        class="medicine-card img-fluid rounded-4" alt="No Image">
+                        {% endif %}
+
+
+
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">
+                                {{ medicine.medicine_name }}
+                            </h5>
+                            <p class="text-muted mb-1">
+                                Category: {{ medicine.category.category_name }}
+                            </p>
+                            <p class="text-muted mb-3">
+                                Brand: {{ medicine.company_name }}
+                            </p>
+                            <p class="card-text" style="min-height:60px;">
+                                {{ medicine.description|truncatewords:18 }}
+                            </p>
+                            <a href="#" class="btn btn-outline-primary w-100 ms-auto" data-bs-toggle="modal"
+                            data-bs-target="#medicineModal{{ medicine.id }}">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                        <div class="modal fade" id="medicineModal{{ medicine.id }}" tabindex="-1">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title ">
+                                            {{ medicine.medicine_name }}
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-5 text-center">
+                                                {% if medicine.medicine_image %}
+                                                <img src="{{ medicine.medicine_image.url }}" class="img-fluid rounded-4 card-img-top"
+                                                alt="{{ medicine.medicine_name }}">
+                                                {% else %}
+                                                <img src="{% static 'images/no-image.png' %}" class="img-fluid rounded-4 card-img-top"
+                                                alt="No Image">
+                                                {% endif %}
+                                            </div>
+
+                                            <div class="col-md-7">
+                                                <p><strong>Category: </strong>{{ medicine.category.category_name }}</p>
+                                                <P><strong>Company: </strong>{{ medicine.company_name }}</P>
+                                                <p><strong>Batch No: </strong>{{ medicine.batch_no }}</p>
+                                                <p><strong>Description: </strong>{{ medicine.description }}</p>
+                                                <p><strong>Expiry Date: </strong>
+                                                {{ medicine.expiry_date }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-secondary" data-bs-dismiss="modal">
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        {% empty %}
+                        <div class="text-center">
+                            No Medicine Found.
+                        </div>
+                        {% endfor %}
+
+
+            </div>
+
+
+            <br>
+            <section class="container py-4">
+            <h2 class="text-center fw-bold mb-3 ">
+                Important Information
+            </h2>
+            <p class="text-center text-muted mb-5">
+                Please read the following information before purchasing or using any medicine.
+            </p>
+
+                <div class="container mb-3">
+                    <div class="alert alert-primary shadow-sm rounded-4">
+                        <h5 class="fw-bold mb-3">
+                            <i class="bi bi-info-circle-fill me-2">
+                                Customer Notice
+                            </i>
+                        </h5>
+                        <ul class="mb-0">
+                           <li>All medicines are sourced from trusted pharmaceutical companies.</li>
+                            <li>Availability of medicines may change depending on stock.</li>
+                            <li>Some medicines may require a valid doctor's prescription.</li>
+                            <li>Please consult your doctor or pharmacist before using any medicine.</li>
+                        </ul>
+                    </div>
+                </div>
+                </section>
+
+            <section class="container py-5">
+                <h2 class="text-center fw-bold mb-3">
+                    Medicine Storage Tips
+                </h2>
+                <p class="text-center text-muted mb-5">
+                    Follow these simple tips to keep your medicines safe and effective.
+                </p>
+
+                <div class="row g-4">
+                    <div class="col-lg-6">
+
+                        <div class="d-flex mb-4">
+                            <i class="bi bi-snow fs-3 text-primary me-3"></i>
+                            <div>
+                                <h5>Store in a cool & dry place</h5>
+                                <p class="text-muted">
+                                    Keep medicines in a cool and dry environment to maintain their quality.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex mb-4">
+                            <i class="bi bi-sun fs-3 text-primary me-3"></i>
+                            <div>
+                                <h5>Avoid Direct Sunlight</h5>
+                                <p class="text-muted">
+                                   Do not expose medicines to direct sunlight or excessive heat.
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="d-flex mb-4">
+                            <i class="bi bi-person-fill-lock fs-3 text-primary me-3"></i>
+                            <div>
+                                <h5>Keep Away From Children</h5>
+                                <p class="text-muted">
+                                    Store medicines safely where children cannot reach them.
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="d-flex mb-4">
+                            <i class="bi bi-calendar-check fs-3 text-primary me-3"></i>
+                            <div>
+                                <h5>Check Expiry Date</h5>
+                                <p class="text-muted">
+                                   Always verify the expiry date before using any medicine.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="bg-primary text-white rounded-4 p-5 text-center shadow">
+                    <h2 class="fw-bold mb-3">
+                        Need Help Finding a Medicine?
+                    </h2>
+                    <p class="mb-4">
+                        Our team is here to help you find the right medicine and
+                        answer your healthcare-related questions.
+                    </p>
+                    <a href="{% url 'contact' %}" class="btn btn-light btn-lg me-2">
+                        Contact Us
+                    </a>
+                    <a href="tel:+919904252007" class="btn btn-outline-light btn-lg">
+                        Call Now
+                    </a>
+                </div>
+
+
+            </section>
+
+        </section>
+
+
+
+{% endblock %}

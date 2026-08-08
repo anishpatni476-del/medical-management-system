@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Feedback
+{% endblock %}
+
+{% block content %}
+            <section class="container py-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h1 class="fw-bold mb-3">
+                            Customer Feedback
+                        </h1>
+                        <p class="lead text-muted">
+                             Your feedback helps us improve our services and provide
+                             a better healthcare experience for every customer.
+                             We appreciate your valuable suggestions and reviews.
+                        </p>
+
+                        <a href="#feedback-form" class="btn btn-primary btn-lg mb-3">
+                            <i class="bi bi-chat-left-text-fill me-2"></i>
+                            Share Your Feedback
+                        </a>
+                    </div>
+
+                    <div class="col-lg-6 text-center">
+                        {% if profile.feedback_page_image %}
+                        <img src="{{ profile.feedback_page_image.url }}" class="img-fluid rounded shadow hero-img mt-3" alt="Customer Feedback">
+                        {% else %}
+                        <img src="{% static 'images/feedback.png.jpeg' %}" class="img-fluid rounded shadow hero-img mt-3" alt="Customer Feedback">
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section class="container py-5" id="feedback-form">
+                <div class="justify-content-center row">
+                    <div class="col-lg-8 col-md-10 col-12">
+                        <div class="card border-0 shadow rounded-4">
+                            <div class="card-body p-5">
+                                <h2 class="text-center fw-bold mb-3">
+                                    Share Your Feedback
+                                </h2>
+                                <p class="text-center text-muted">
+                                    We value your opinion. Please share your experience with Noble Chemist.
+                                </p>
+
+                                {% if messages %}
+                        {% for message in messages %}
+                                {% if "public" in message.tags %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{message}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                                {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <div class="mb-3">
+                                        <label class="form-label">
+                                            Full Name
+                                        </label>
+                                        <input class="form-control" type="text" placeholder="Enter your full name" name="customer_name">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">
+                                          Email Address
+                                            <small class="text-muted">(Optional)</small>
+                                        </label>
+                                        <input class="form-control" type="email" placeholder="Enter Your email" name="email">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">
+                                            Phone Number
+                                            <small class="text-muted">(Optional)</small>
+                                        </label>
+                                        <input class="form-control" type="tel" placeholder="Enter your phone number" name="phone_number">
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label class="form-label">
+                                            Rate Your Experience
+                                        </label>
+                                       <input type="hidden" name="rating" id="rating" value="">
+                                        <div class="rating-stars mb-3">
+                                            <i class=" bi bi-star star" data-value="1"></i>
+                                            <i class=" bi bi-star star" data-value="2"></i>
+                                            <i class=" bi bi-star star" data-value="3"></i>
+                                            <i class=" bi bi-star star" data-value="4"></i>
+                                            <i class=" bi bi-star star" data-value="5"></i>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="mb-4">
+                                        <label class="form-label">
+                                            Your Feedback
+                                        </label>
+                                        <textarea class="form-control" rows="5" placeholder="Write your feedback here..." name="comment"></textarea>
+                                    </div>
+                                    <button class="btn btn-primary px-4 py-2 rounded-3" type="submit">
+
+                                        Submit Feedback
+                                    </button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row text-center mt-5">
+                    <div class="col-md-4 mb-4">
+                        <i class="bi bi-chat-left-text-fill fs-1 text-primary"></i>
+                        <h5 class="mt-3">
+                            Share Your Experience
+                        </h5>
+                        <p>Tell us about your experience with our pharmacy and services.</p>
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+                        <i class="bi bi-lightbulb-fill fs-1 text-warning"></i>
+                        <h5 class="mt-3">
+                            Help Us Improve
+                        </h5>
+                        <p>Your suggestions help us improve our products and customer service.</p>
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+                        <i class="bi bi-heart-fill fs-1 text-danger"></i>
+                           <h5 class="mt-3">
+                               We Value Every Customer
+                           </h5>
+                        <p>Every feedback is important and helps us serve you better.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container py-5">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold"> What Our Customers Say</h2>
+                    <p class="text-muted">
+                        Read what our valued customers have shared about their experience with Noble Chemist.
+                    </p>
+                </div>
+
+                <div class="row">
+                    {% for feedback in feedbacks %}
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card shadow border-0 rounded-4 h-100">
+                            <div class="card-body p-4">
+                                <div class="rating-stars d-flex gap-2">
+                                    {% for i in '12345' %}
+                                    {% if forloop.counter <= feedback.rating %}
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    {% else %}
+                                    <i class="bi bi-star text-warning"></i>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <p>
+                                    {{ feedback.comment }}
+                                </p>
+                                <h6 class="fw-bold">
+                                    {{ feedback.customer_name }}
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="text-center">
+                        <h5>No Feedback Available</h5>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </section>
+
+          <script>
+console.log("JS Loaded");
+
+const stars = document.querySelectorAll(".star");
+const ratingInput = document.getElementById("rating");
+
+stars.forEach((star) => {
+    star.addEventListener("click", function () {
+
+        let value = this.dataset.value;
+        ratingInput.value = value;
+
+        stars.forEach((s) => {
+            s.classList.remove("active");
+            s.classList.remove("bi-star-fill");
+            s.classList.add("bi-star");
+        });
+
+        for (let i = 0; i < value; i++) {
+            stars[i].classList.add("active");
+            stars[i].classList.remove("bi-star");
+            stars[i].classList.add("bi-star-fill");
+        }
+    });
+});
+</script>
+
+{% endblock %}
