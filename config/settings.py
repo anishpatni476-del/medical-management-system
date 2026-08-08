@@ -31,6 +31,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
+    "https://medical-management-system-oqn4.onrender.com",
 ]
 
 
