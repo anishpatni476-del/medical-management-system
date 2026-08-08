@@ -67,7 +67,15 @@ home
         <section class="container py-5">
             <div class="row align item-center">
                 <div class="col-lg-6 mb-4">
-                    <img src="{% static 'images/about.png' %}" class="img-fluid rounded shadow" alt="about">
+
+                    {% if profile.home_about_image %}
+                    <img src="{{ profile.home_about_image.url }}" class="img-fluid rounded shadow" alt="about">
+                    {% else %}
+                     <img src="{% static 'images/about.png' %}" class="img-fluid rounded shadow" alt="about">
+                    {% endif %}
+
+
+
                 </div>
                 <div class="col-lg-6">
                     <h2 class="fw-bold mb-3">About Noble Chemist </h2>
