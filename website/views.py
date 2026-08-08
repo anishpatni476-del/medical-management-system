@@ -558,16 +558,19 @@ def owner_reports(request):
                "total_messages":total_messages,
                "total_feedback":total_feedback}
     return render(request,'owner/reports.html',context)
+
+
 @never_cache
 @login_required
 def owner_profile(request):
-    profile, created = OwnerProfile.objects.get_or_create(
-        user=request.user
-    )
-    context = {
-        "profile":profile,
-    }
-    return render(request,"owner/owner_profile.html",context)
+    if request.user.is_authenticated:
+        profile, created = OwnerProfile.objects.get_or_create(
+            user=request.user
+        )
+        return {"profile": profile}
+
+    return {"profile": None}
+
 
 @never_cache
 @login_required
