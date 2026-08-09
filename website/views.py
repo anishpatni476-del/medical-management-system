@@ -1,4 +1,6 @@
 from decimal import Decimal
+
+from django.conf import settings
 from django.views.decorators.cache import never_cache
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login,logout
@@ -14,6 +16,13 @@ from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.platypus import Paragraph
 from reportlab.lib.units import inch
+from imagekitio import ImageKit
+from django.views.decorators.csrf import csrf_exempt
+
+imagekit = ImageKit(
+    private_key=settings.IMAGEKIT_PRIVATE_KEY
+)
+
 
 
 
@@ -567,9 +576,9 @@ def owner_profile(request):
         profile, created = OwnerProfile.objects.get_or_create(
             user=request.user
         )
-        return {"profile": profile}
 
-    return {"profile": None}
+    return render(request,"owner/owner_profile.html",{"profile":profile})
+
 
 
 @never_cache

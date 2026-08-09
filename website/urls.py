@@ -43,4 +43,5 @@ urlpatterns =[
     path("owner/update_images/",views.update_images,name="update_images"),
 
 
+
 ]

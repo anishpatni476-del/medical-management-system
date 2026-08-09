@@ -1,7 +1,7 @@
 from django.db import models
 
 from django.contrib.auth.models import User
-
+from .storage import ImageKitStorage
 
 # Create your models here.
 class Category(models.Model):
@@ -82,13 +82,13 @@ class OwnerProfile(models.Model):
     medical_store_address = models.TextField(blank=True,null=True)
     business_hours = models.TextField(max_length=100,blank=True,null=True)
     created_at = models.DateTimeField(auto_now_add=True,null=True,blank=True)
-    home_hero_image = models.ImageField(upload_to="public_site_images",null=True,blank=True)
-    home_about_image = models.ImageField(upload_to="public_site_images", null=True, blank=True)
-    about_page_image = models.ImageField(upload_to="public_site_images", null=True, blank=True)
-    services_page_image = models.ImageField(upload_to="public_site_images", null=True, blank=True)
-    medicines_page_image = models.ImageField(upload_to="public_site_images", null=True, blank=True)
-    contact_page_image = models.ImageField(upload_to="public_site_images", null=True, blank=True)
-    feedback_page_image = models.ImageField(upload_to="public_site_images", null=True, blank=True)
+    home_hero_image = models.ImageField(upload_to="public_site_images", storage=ImageKitStorage,null=True,blank=True)
+    home_about_image = models.ImageField(upload_to="public_site_images",storage=ImageKitStorage, null=True, blank=True)
+    about_page_image = models.ImageField(upload_to="public_site_images",storage=ImageKitStorage, null=True, blank=True)
+    services_page_image = models.ImageField(upload_to="public_site_images",storage=ImageKitStorage, null=True, blank=True)
+    medicines_page_image = models.ImageField(upload_to="public_site_images",storage=ImageKitStorage, null=True, blank=True)
+    contact_page_image = models.ImageField(upload_to="public_site_images",storage=ImageKitStorage, null=True, blank=True)
+    feedback_page_image = models.ImageField(upload_to="public_site_images",storage=ImageKitStorage, null=True, blank=True)
 
 
 

@@ -1,7 +1,12 @@
 from .models import OwnerProfile
 
 def owner_profile(request):
-    profile = OwnerProfile.objects.first()
-    return {
-        "profile":profile
-    }
+    if request.user.is_authenticated:
+
+        profile, created = OwnerProfile.objects.get_or_create(
+            user = request.user
+        )
+        return {
+            "profile":profile
+        }
+    return {"profile":None}
