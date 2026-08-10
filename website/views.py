@@ -29,7 +29,8 @@ imagekit = ImageKit(
 # Create your views here.
 @never_cache
 def home(request):
-    return render(request,'website/home.html')
+    profile = OwnerProfile.objects.first()
+    return render(request,'website/home.html',{"profile":profile})
 
 
 @never_cache
