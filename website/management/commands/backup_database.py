@@ -1,11 +1,12 @@
 import os
 import tempfile
 from datetime import datetime
-
+import json
 from django.core.management.base import BaseCommand
 from django.core.management import call_command
 
 from imagekitio import ImageKit
+
 
 
 class Command(BaseCommand):
@@ -33,6 +34,7 @@ class Command(BaseCommand):
                 indent=2
             )
 
+            # Save backup details
 
         # Upload to ImageKit
 
@@ -47,6 +49,11 @@ class Command(BaseCommand):
                 file=backup_file,
                 file_name=filename
             )
+
+            # Delete old backups (keep latest 30)
+
+            # Delete old backups (keep latest 30)
+
 
 
         # Delete temporary file

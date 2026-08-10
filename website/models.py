@@ -91,8 +91,6 @@ class OwnerProfile(models.Model):
     feedback_page_image = models.ImageField(upload_to="public_site_images",storage=ImageKitStorage, null=True, blank=True)
 
 
-
-
     def __str__(self):
         return self.user.username
 
@@ -117,5 +115,9 @@ class Purchase(models.Model):
 
     def __str__(self):
         return f"{self.medicine.medicine_name}-{self.purchase_date}"
+
+
+
+
 
 
