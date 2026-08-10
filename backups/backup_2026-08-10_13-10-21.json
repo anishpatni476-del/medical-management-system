@@ -1,0 +1,849 @@
+[
+{
+  "model": "website.category",
+  "pk": 1,
+  "fields": {
+    "category_name": "tablet",
+    "description": "tablet medicines\r\n                           ",
+    "status": "Active",
+    "created_at": "2026-07-24T10:29:50.224Z"
+  }
+},
+{
+  "model": "website.category",
+  "pk": 2,
+  "fields": {
+    "category_name": "injection",
+    "description": "injection medicines",
+    "status": "Active",
+    "created_at": "2026-07-24T11:47:43.033Z"
+  }
+},
+{
+  "model": "website.category",
+  "pk": 3,
+  "fields": {
+    "category_name": "olvine",
+    "description": "it is olvin",
+    "status": "Active",
+    "created_at": "2026-08-06T03:09:39.812Z"
+  }
+},
+{
+  "model": "website.supplier",
+  "pk": 2,
+  "fields": {
+    "company_name": "sun pharma pvt. ltd",
+    "contact_person": "rohan patil",
+    "mobile_no": "3456234323",
+    "email": "sunpharma@gmail.com",
+    "gst_no": "sdera1234sd",
+    "address": "new baroda sp hiway",
+    "city": "ahemdabad",
+    "status": "Active",
+    "created_at": "2026-07-24T14:29:24.382Z"
+  }
+},
+{
+  "model": "website.supplier",
+  "pk": 4,
+  "fields": {
+    "company_name": "pmvs",
+    "contact_person": "anish patni",
+    "mobile_no": "7383902665",
+    "email": "patnis466@gmail.com",
+    "gst_no": "sfefefdc124",
+    "address": "c 14 neminath odhav roed ahemdabad",
+    "city": "ahemdabad",
+    "status": "Inactive",
+    "created_at": "2026-08-06T07:55:26.773Z"
+  }
+},
+{
+  "model": "website.medicine",
+  "pk": 3,
+  "fields": {
+    "medicine_name": "Vitamin C Tablets",
+    "category": 2,
+    "company_name": "mankind",
+    "batch_no": "vcda1234",
+    "stock_quantity": 15,
+    "purchase_price": "60.00",
+    "selling_price": "20.00",
+    "minimum_stock": 10,
+    "manufacturing_date": "2026-07-24",
+    "expiry_date": "2026-07-31",
+    "supplier": 2,
+    "medicine_image": "medicine_images/vitaminc.png",
+    "description": "Supports immunity and helps maintain overall health\r\n                                \r\n                                ",
+    "created_at": "2026-07-26T14:19:38.542Z"
+  }
+},
+{
+  "model": "website.medicine",
+  "pk": 5,
+  "fields": {
+    "medicine_name": "peracetamol",
+    "category": 1,
+    "company_name": "Taj Pharma",
+    "batch_no": "vcda1234",
+    "stock_quantity": 5,
+    "purchase_price": "20.00",
+    "selling_price": "25.00",
+    "minimum_stock": 10,
+    "manufacturing_date": "2026-08-12",
+    "expiry_date": "2026-08-14",
+    "supplier": 2,
+    "medicine_image": "medicine_images/paracetamol1.png",
+    "description": "Used for reducing fever and relieving mild to moderate pain.\r\n                                \r\n                                \r\n                                ",
+    "created_at": "2026-08-04T03:13:44.452Z"
+  }
+},
+{
+  "model": "website.medicine",
+  "pk": 6,
+  "fields": {
+    "medicine_name": "electral",
+    "category": 2,
+    "company_name": "sun pharma pvt. ltd",
+    "batch_no": "vcda1234",
+    "stock_quantity": 50,
+    "purchase_price": "10.00",
+    "selling_price": "15.00",
+    "minimum_stock": 10,
+    "manufacturing_date": "2026-08-10",
+    "expiry_date": "2026-08-20",
+    "supplier": 2,
+    "medicine_image": "",
+    "description": "it is paraseta injection\r\n                                ",
+    "created_at": "2026-08-06T15:10:39.834Z"
+  }
+},
+{
+  "model": "website.message",
+  "pk": 2,
+  "fields": {
+    "name": "anish patni",
+    "email": "patnis466@gmail.com",
+    "phone": "07383902665",
+    "message": "it is best choice for",
+    "created_at": "2026-07-26T14:58:20.050Z"
+  }
+},
+{
+  "model": "website.message",
+  "pk": 3,
+  "fields": {
+    "name": "Sachin Patani",
+    "email": "patnis466@gmail.com",
+    "phone": "4534231234",
+    "message": "it is good shop ",
+    "created_at": "2026-07-26T14:58:43.889Z"
+  }
+},
+{
+  "model": "website.feedback",
+  "pk": 4,
+  "fields": {
+    "customer_name": "Sachin Patani",
+    "email": "patnis466@gmail.com",
+    "phone_number": "07383902665",
+    "rating": 4,
+    "comment": "it is our best site for medical store ",
+    "created_at": "2026-08-04T14:40:20.398Z"
+  }
+},
+{
+  "model": "website.feedback",
+  "pk": 6,
+  "fields": {
+    "customer_name": "anish patni",
+    "email": "patnis466@gmail.com",
+    "phone_number": "7383902665",
+    "rating": 5,
+    "comment": "it is best site for medical store information ",
+    "created_at": "2026-08-06T16:13:12.756Z"
+  }
+},
+{
+  "model": "website.ownerprofile",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "profile_photo": "owner_profile/profile.png",
+    "mobile_number": "9904252007",
+    "medical_store_name": "Noble Chemist",
+    "medical_store_address": "45/1, Hari Ganga society,\r\nOPPO, CMC, Odhav,\r\nAhemdabad-382415.",
+    "business_hours": "Mon - Sat : 9:00 AM - 10:00 PM \r\nSunday - 9:00 AM - 4:00 PM",
+    "created_at": "2026-07-31T03:07:34.243Z",
+    "home_hero_image": "medical-management/public_site_images_electral_qA8of4_2J.png",
+    "home_about_image": "medical-management/public_site_images_about_RQ1fgmTLB.jpg",
+    "about_page_image": "medical-management/public_site_images_about2_kEcMFAEKp.png",
+    "services_page_image": "medical-management/public_site_images_services1_fY9QpIsa1.png",
+    "medicines_page_image": "medical-management/public_site_images_medical_-1CHnisy4.jpeg",
+    "contact_page_image": "medical-management/public_site_images_contact_PRlEaSfrk.png",
+    "feedback_page_image": "medical-management/public_site_images_feedback.png_mB4rQezPI.jpeg"
+  }
+},
+{
+  "model": "website.purchase",
+  "pk": 3,
+  "fields": {
+    "medicine": 3,
+    "supplier": 2,
+    "invoice_number": "adejfr2321",
+    "purchase_price": "60.00",
+    "quantity": 10,
+    "gst_percentage": "18.00",
+    "gst_amount": "0.00",
+    "total_amount": "708.00",
+    "purchase_date": "2026-08-01",
+    "created_at": "2026-08-02T05:45:49.263Z"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-07-29T15:56:55.601Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "1",
+    "object_repr": "owner",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\"]}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 3,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 3,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 3,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 3,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 2,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 2,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 2,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 2,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add feedback",
+    "content_type": 8,
+    "codename": "add_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change feedback",
+    "content_type": 8,
+    "codename": "change_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete feedback",
+    "content_type": 8,
+    "codename": "delete_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view feedback",
+    "content_type": 8,
+    "codename": "view_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add message",
+    "content_type": 10,
+    "codename": "add_message"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change message",
+    "content_type": 10,
+    "codename": "change_message"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete message",
+    "content_type": 10,
+    "codename": "delete_message"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view message",
+    "content_type": 10,
+    "codename": "view_message"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add category",
+    "content_type": 7,
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change category",
+    "content_type": 7,
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete category",
+    "content_type": 7,
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view category",
+    "content_type": 7,
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add supplier",
+    "content_type": 11,
+    "codename": "add_supplier"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change supplier",
+    "content_type": 11,
+    "codename": "change_supplier"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete supplier",
+    "content_type": 11,
+    "codename": "delete_supplier"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view supplier",
+    "content_type": 11,
+    "codename": "view_supplier"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add medicine",
+    "content_type": 9,
+    "codename": "add_medicine"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change medicine",
+    "content_type": 9,
+    "codename": "change_medicine"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete medicine",
+    "content_type": 9,
+    "codename": "delete_medicine"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view medicine",
+    "content_type": 9,
+    "codename": "view_medicine"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add owner profile",
+    "content_type": 12,
+    "codename": "add_ownerprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change owner profile",
+    "content_type": 12,
+    "codename": "change_ownerprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete owner profile",
+    "content_type": 12,
+    "codename": "delete_ownerprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view owner profile",
+    "content_type": 12,
+    "codename": "view_ownerprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add purchase",
+    "content_type": 13,
+    "codename": "add_purchase"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change purchase",
+    "content_type": 13,
+    "codename": "change_purchase"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete purchase",
+    "content_type": 13,
+    "codename": "delete_purchase"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view purchase",
+    "content_type": 13,
+    "codename": "view_purchase"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$vKXhibPu9JkEoGSSbVoWvb$R7cR2WUonmR8oRdc2aEyyErc6Kxg7vJ3xe8HgfhVuwI=",
+    "last_login": "2026-08-10T04:44:17.079Z",
+    "is_superuser": true,
+    "username": "owner",
+    "first_name": "Jitu",
+    "last_name": "Verma",
+    "email": "jituvarma988@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-07-20T15:16:38Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$qHrBnborAq9GYlLXu4CFFA$wwP5TXJhWdwO6Vkm01KJ4MNxdmNoCbCo8o3VQisB6bM=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "noblechemist",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-08-10T06:06:59.310Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "website",
+    "model": "category"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "website",
+    "model": "feedback"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "website",
+    "model": "medicine"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "website",
+    "model": "message"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "website",
+    "model": "supplier"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "website",
+    "model": "ownerprofile"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "website",
+    "model": "purchase"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "0kgm426rf5nw2dzr6vnh9qymreelqeij",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQAP-yZ0O6FAr06N03kGVZpGrapLQn499Nkx70OjOZN0Tatxr3JmucMoyAcPllifgp8yHyg-b7oniZt3VK6kjUaZu6LVle17P9G1RqFUbQ1msqYixrMs44wsxau0BOCg6hy56FiPXQIRZP0oXUOw5ocUg9WoHPF-MYN8Q:1wrfF5:BGuFkfvYbvVkeYfb496nT_Z9Pvgsw47nibHeFdK8JFs",
+    "expire_date": "2026-08-19T17:17:23.002Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "mpxkczc91h2whua8chtmwppyw0ymn8q3",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQAP-yZ0O6FAr06N03kGVZpGrapLQn499Nkx70OjOZN0Tatxr3JmucMoyAcPllifgp8yHyg-b7oniZt3VK6kjUaZu6LVle17P9G1RqFUbQ1msqYixrMs44wsxau0BOCg6hy56FiPXQIRZP0oXUOw5ocUg9WoHPF-MYN8Q:1wrd7d:nTt_LTEwKUwmML2SYuZwS-MRyW-Qhguqu5ogzm5PYGY",
+    "expire_date": "2026-08-19T15:01:33.583Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "yjlxy90vqgpga5eyitqcwfwzpsae2kzh",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQAP-yZ0O6FAr06N03kGVZpGrapLQn499Nkx70OjOZN0Tatxr3JmucMoyAcPllifgp8yHyg-b7oniZt3VK6kjUaZu6LVle17P9G1RqFUbQ1msqYixrMs44wsxau0BOCg6hy56FiPXQIRZP0oXUOw5ocUg9WoHPF-MYN8Q:1wtHsu:801lK5VChgx3l_5q1VbUaIryX26wkhH2JUpQMuuuH2I",
+    "expire_date": "2026-08-24T04:45:12.266Z"
+  }
+}
+]
