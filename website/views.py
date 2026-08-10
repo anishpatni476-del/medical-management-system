@@ -35,15 +35,17 @@ def home(request):
 
 @never_cache
 def about(request):
-    return render(request,'website/about.html')
+    profile = OwnerProfile.objects.first()
+    return render(request,'website/about.html',{"profile":profile})
 
 @never_cache
 def services(request):
-    return render(request,'website/services.html')
+    profile = OwnerProfile.objects.first()
+    return render(request,'website/services.html',{"profile":profile})
 
 @never_cache
 def medicines(request):
-
+    profile = OwnerProfile.objects.first()
     medicines = Medicine.objects.select_related("category").filter(
         stock_quantity__gt=0
     )
@@ -65,12 +67,13 @@ def medicines(request):
     context = {
         "medicines":medicines,
         "categories":categories,
+        "profile": profile,
     }
     return render(request,'website/medicines.html',context)
 
 @never_cache
 def contact(request):
-
+    profile = OwnerProfile.objects.first()
     if request.method == "POST":
         name = request.POST.get("name")
         email = request.POST.get("email")
@@ -87,11 +90,13 @@ def contact(request):
     owner_profile = OwnerProfile.objects.first()
     context = {
         "owner_profile":owner_profile,
+        "profile": profile,
     }
     return render(request,'website/contact.html',context)
 
 @never_cache
 def feedback(request):
+    profile = OwnerProfile.objects.first()
     if request.method == 'POST':
         customer_name = request.POST.get("customer_name")
         email = request.POST.get("email")
@@ -111,7 +116,7 @@ def feedback(request):
         messages.success(request,'Thank you! Your feedback has been submitted successfully.',extra_tags="public")
         return redirect("feedback")
     feedbacks = Feedback.objects.order_by('-created_at')[:6]
-    return render(request,'website/feedback.html',{"feedbacks":feedbacks})
+    return render(request,'website/feedback.html',{"feedbacks":feedbacks,"profile":profile})
 
 @never_cache
 def owner_login(request):
