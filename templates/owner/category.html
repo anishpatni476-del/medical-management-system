@@ -127,14 +127,19 @@ Category
                                     </tbody>
                         </table>
 
-                        {% for category in categories %}
+
+
+                    </div>
+                </div>
+
+                {% for category in categories %}
                         <div class="modal fade" id="deleteCategory{{ category.id }}" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
 
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Delete Medicine
+                            Delete Category
                         </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
@@ -157,20 +162,20 @@ Category
                             Delete
                         </a>
                     </div>
-                    {% endfor %}
+
                 </div>
             </div>
                               </div>
+                        {% endfor %}
 
-                    </div>
-                </div>
-            </div>
+
+
                     <div class="card-footer bg-white">
                 <div class="d-flex justify-content-between align-items-center mt-3">
 
                     <small class="text-muted">
                         Showing {{ categories.start_index }} to {{ categories.end_index }} of
-                        {{ medicines.paginator.count }} categories.
+                        {{ categories.paginator.count }} categories.
                     </small>
 
                     <nav>
@@ -206,4 +211,5 @@ Category
                 </div>
         </div>
     </div>
+</div>
 {% endblock %}
