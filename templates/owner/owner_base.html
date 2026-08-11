@@ -167,8 +167,10 @@
 
 <script>
     function toggleOwnerSidebar(){
-        const sidebar = document.querySelector("owner-sidebar");
-        sidebar.classList.toggle("mobile-open");
+        const sidebar = document.querySelector(".owner-sidebar");
+        if (sidebar){
+            sidebar.classList.toggle("mobile-open");
+    }
     }
 </script>
 
