@@ -41,7 +41,7 @@ class Medicine(models.Model):
     manufacturing_date = models.DateField(blank=True, null=True)
     expiry_date = models.DateField(blank=True, null=True)
     supplier = models.ForeignKey(Supplier,on_delete=models.CASCADE)
-    medicine_image = models.ImageField(upload_to='medicine_images/',blank=True, null=True)
+    medicine_image = models.ImageField(upload_to='medicine_images/',storage=ImageKitStorage,blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
 
