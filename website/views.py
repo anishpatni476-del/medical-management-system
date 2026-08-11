@@ -125,11 +125,11 @@ def owner_login(request):
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
-        print("username:",username)
-        print("password:",password)
         user = authenticate(request,username=username,password=password)
         if user is not None:
             login(request, user)
+            print("LOGIN SUCCESS:",request.user.is_authenticated)
+            print("SESSION KEY:",request.session.session_key)
             return redirect("owner_dashboard")
         else:
             messages.error(request,"Invalid username and password.")
