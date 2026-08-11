@@ -227,3 +227,52 @@ textarea.form-control{
 .rating-stars .star.active{
     color:#ffc107;
 }
+
+
+.owner-sidebar{
+        position:fixed;
+        top:0;
+        left:0;
+        width:280px;
+        height:100vh;
+        overflow-y:auto;
+        background:#1F2937;
+        z-index:1050;
+}
+
+.main-content{
+ margin-left: 280px;
+ padding: 20px;
+}
+
+.mobile-menu-btn{
+    display:none;
+}
+
+
+@media (max-width:991.98px){
+    .owner-sidebar{
+        display:none;
+        width:280px;
+    }
+
+    .owner-sidebar.mobile-open{
+        display:block;
+    }
+
+    .main-content{
+        margin-left:0;
+        width:100%;
+        padding:15px;
+    }
+
+    .mobile-menu-btn{
+        display:block;
+        position:fixed;
+        top:15px;
+        right:15px;
+        z-index:1100;
+        font-size:22px;
+        border-radius:8px;
+    }
+}
