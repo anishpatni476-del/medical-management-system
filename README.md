@@ -45,7 +45,7 @@ The owner can:
 - CSS3
 - JavaScript
 - Bootstrap
-- SQLite
+- PostgreSQL
 - ImageKit
 - ReportLab
 - Git & GitHub
@@ -92,7 +92,6 @@ While making this project, I learned:
 
 In the future, I would like to add:
 
-- PostgreSQL database
 - Medicine expiry notifications
 - Low stock notifications
 - Better reports and analytics
