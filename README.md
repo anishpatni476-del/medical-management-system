@@ -98,6 +98,17 @@ In the future, I would like to add:
 - Staff management
 - Automatic backup system
 
+## Company Information
+- This project is created for portfolio and educational purposes.
+- Some business information has been replaced with sample data.
+
+
+Noble Chemist
+Ahmedabad, Gujarat
+Phone: +91 XXXXX XXXXX
+Email: example@email.com
+
+
 ## Developer
 
 Anish Patni
